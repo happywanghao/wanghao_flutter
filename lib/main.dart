@@ -12,7 +12,9 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false, //不显示debug
       home: Home(),
       theme: ThemeData(
-        primarySwatch: Colors.yellow
+        primarySwatch: Colors.yellow,
+        highlightColor: Color.fromRGBO(255, 255, 255, 0.5), //按钮按下去的高亮颜色
+        splashColor: Colors.white70, //按钮按下去的水波纹的颜色
       ),//主题颜色
     );
   }
@@ -43,6 +45,10 @@ class Home extends StatelessWidget {
           ],
           elevation: 0.0, //阴影
           bottom: TabBar(
+            unselectedLabelColor: Colors.black38, //未选中的颜色
+            indicatorColor: Colors.black54, //下划线的颜色
+            indicatorSize: TabBarIndicatorSize.label, //下划线的长度
+            indicatorWeight: 1.0,
             tabs: <Widget>[
               Tab(icon:Icon(Icons.local_florist)),
               Tab(icon:Icon(Icons.change_history)),
