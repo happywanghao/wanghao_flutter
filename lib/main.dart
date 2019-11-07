@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'model/post.dart';
+import 'demo/listview_demo.dart';
+import 'demo/hello_demo.dart';
 void main() {
   runApp(App());
 }
@@ -8,65 +9,56 @@ class App extends StatelessWidget {
   @override 
   Widget build(BuildContext context){
     return MaterialApp(
+      debugShowCheckedModeBanner: false, //不显示debug
       home: Home(),
-      theme: ThemeData(primarySwatch: Colors.yellow),//主题颜色
+      theme: ThemeData(
+        primarySwatch: Colors.yellow
+      ),//主题颜色
     );
   }
 }
 
 class Home extends StatelessWidget {
-  Widget _listItemBuilder(BuildContext context,int index){
-    return Container(
-      color: Colors.white,
-      margin: EdgeInsets.all(8.0),
-      child: Column(
-        children: <Widget>[
-          Image.network(posts[index].imageUrl),
-          SizedBox(height: 16.0,),
-          Text(
-            posts[index].title,
-            style:Theme.of(context).textTheme.title
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return DefaultTabController(
+      length:3,
+      child: Scaffold(
+        backgroundColor: Colors.grey[100],
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.menu),
+            tooltip: "Navigration",
+            onPressed: ()=>debugPrint('navigration button is pressed'),
           ),
-          Text(
-            posts[index].author,
-            style:Theme.of(context).textTheme.subhead
+          title: Text("WANGHAO"),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search),
+              tooltip: "Search",
+              onPressed: ()=>debugPrint('Search button is pressed'),
+            ),
+          ],
+          elevation: 0.0, //阴影
+          bottom: TabBar(
+            tabs: <Widget>[
+              Tab(icon:Icon(Icons.local_florist)),
+              Tab(icon:Icon(Icons.change_history)),
+              Tab(icon:Icon(Icons.directions_bike)),
+            ],
           ),
-          SizedBox(height: 16.0,)
-        ],
+        ),
+        body: TabBarView(
+          children: <Widget>[
+            Icon(Icons.local_florist,size:128.0,color:Colors.black12),
+            Icon(Icons.change_history,size:128.0,color:Colors.black12),
+            Icon(Icons.directions_bike,size:128.0,color:Colors.black12),
+          ],
+        )
       ),
     );
   }
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Scaffold(
-        backgroundColor: Colors.grey[100],
-        appBar: AppBar(
-          title: Text("WANGHAO"),
-          elevation: 30.0, //阴影
-        ),
-        body: ListView.builder(
-          itemCount: posts.length,
-          itemBuilder: _listItemBuilder,
-        ),
-      );
-  }
 }
 
-class Hello extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Center(
-      child: Text(
-        'hello',
-        textDirection: TextDirection.ltr,
-        style: TextStyle(
-          fontSize: 40.0,
-          fontWeight: FontWeight.bold,
-          color: Colors.black87,
-        ),
-      )
-    );
-  }
-}
