@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'demo/listview_demo.dart';
 import 'demo/hello_demo.dart';
 import 'demo/drawer_demo.dart';
+import 'demo/bottom_navigation_bar_demo.dart';
 void main() {
   runApp(App());
 }
@@ -22,6 +23,7 @@ class App extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,34 +61,13 @@ class Home extends StatelessWidget {
         ),
         body: TabBarView(
           children: <Widget>[
-            Icon(Icons.local_florist,size:128.0,color:Colors.black12),
+            ListViewDemo(),
             Icon(Icons.change_history,size:128.0,color:Colors.black12),
             Icon(Icons.directions_bike,size:128.0,color:Colors.black12),
           ],
         ),
         drawer: DrawerDemo(),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,  //达到四个bar的话会变成白色因为类型会变化，需要指定类型
-          fixedColor: Colors.black,  //激活状态变成黑色
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.explore),
-              title: Text('Explore')
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.history),
-              title: Text('History')
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.list),
-              title: Text('List')
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              title: Text('My')
-            )
-          ],
-        ),  //抽屉
+        bottomNavigationBar: bottomNavigationBarDemo()  //抽屉
       ),
     );
   }
