@@ -63,13 +63,28 @@ class Home extends StatelessWidget {
             Icon(Icons.directions_bike,size:128.0,color:Colors.black12),
           ],
         ),
-        drawer: Container(  //左边的抽屉
-          color:Colors.white,
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        drawer: Drawer(
+          child:ListView(
+            padding: EdgeInsets.zero,
             children: <Widget>[
-              Text('this is drawer')
+              DrawerHeader(
+                child: Text('header'.toUpperCase()),
+                decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                ),
+              ),
+              ListTile(
+                title: Text("Message",textAlign:TextAlign.right),//标题
+                trailing: Icon(Icons.message,color:Colors.black12,size:12.0),//图标
+              ),
+              ListTile(
+                title: Text("Favorite",textAlign:TextAlign.right),//标题
+                trailing: Icon(Icons.favorite,color:Colors.black12,size:12.0),//图标
+              ),
+              ListTile(
+                title: Text("Settings",textAlign:TextAlign.right),//标题
+                trailing: Icon(Icons.settings,color:Colors.black12,size:12.0),//图标
+              ),
             ],
           ),
         ),  //抽屉
