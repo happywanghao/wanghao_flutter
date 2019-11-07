@@ -67,12 +67,13 @@ class Home extends StatelessWidget {
           child:ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
-              DrawerHeader(
-                child: Text('header'.toUpperCase()),
-                decoration: BoxDecoration(
-                  color: Colors.grey[100],
-                ),
-              ),
+             UserAccountsDrawerHeader(  //展示用户信息的drawerHeader
+               accountName: Text('wanghao',style:TextStyle(fontWeight: FontWeight.bold)),
+               accountEmail: Text('wanghao@wanghao.net'),
+               currentAccountPicture: CircleAvatar(
+                 backgroundImage: NetworkImage('https://resources.ninghao.org/images/wanghao.jpg'),
+               ),
+             ),
               ListTile(
                 title: Text("Message",textAlign:TextAlign.right),//标题
                 trailing: Icon(Icons.message,color:Colors.black12,size:12.0),//图标
