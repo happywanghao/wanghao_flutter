@@ -7,7 +7,7 @@ class BasicDemo extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    
     return Container(
       // color: Colors.grey[100],
       decoration: BoxDecoration(
@@ -101,7 +101,6 @@ class TextDemo extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Text(
       '《$_title》—— $_author。君不见黄河之水天上来，奔流到海不复还。君不见高堂明月悲白发，朝如青丝暮成雪。人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散去还复来。烹羊宰牛且为乐，会须一饮三百杯。',
       textAlign: TextAlign.left,  
@@ -118,7 +117,6 @@ class RichTextDemo extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return RichText(
       text:TextSpan(
         text: 'wanghao',
